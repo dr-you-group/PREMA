@@ -35,3 +35,44 @@ Metabolic acidosis is defined by both of the following criteria on blood gas ana
 
 
 ### Demographic data
+| Variable | Column | Type | Encoding | Description |
+|---|---|---|---|---|
+| Gestational age | `GA` | numeric | Continuous (days) | Gestational age at birth |
+| Birth weight | `BW` | numeric | Continuous (kg) | Weight at birth |
+| Sex | `male` | integer | `1` = Male, `0` = Female | Biological sex |
+| Postmenstrual age | `PMA` | numeric | Continuous (days) | PMA at the time of prediction |
+
+## Model Architecture 
+PREMA is an **XGBoost** classifier trained on statistical features extracted from 4-hour segments of continuous vital sign data via a sliding-window approach.
+
+### Pipeline 
+```
+1-min interval HR/SpO₂ data (4 hours)
+Demographic variables 
+        │
+        ▼
+┌─────────────────────────┐
+│   Sliding Window (2h)   │──► Advanced in 30-min increments
+│   Feature Extraction    │    across the 4-hour segment
+└─────────────────────────┘
+        │
+        ▼
+┌─────────────────────────┐
+│   129 Features/episode  │
+│ (Statistical + Temporal │
+│      + Demographic)     │
+└─────────────────────────┘
+        │
+        ▼
+┌─────────────────────────┐
+│   XGBoost Classifier    │──► Probability of metabolic acidosis
+└─────────────────────────┘        (6 hours ahead)
+```
+
+## Repository Structure
+*Repository structure is subject to change. Please refer to the latest version.*
+
+## Contact 
+- **Ju Hyun Jin, MD** - jhjin122@yuhs.ac
+- **Seng Chan You, MD, PhD** - chandryou@yuhs.ac
+- **Jeong Eun Shin, MD, PhD** - golden-week@yuhs.ac
