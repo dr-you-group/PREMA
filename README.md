@@ -42,32 +42,70 @@ Metabolic acidosis is defined by both of the following criteria on blood gas ana
 | Sex | `male` | integer | `1` = Male, `0` = Female | Biological sex |
 | Postmenstrual age | `PMA` | numeric | Continuous (days) | PMA at the time of prediction |
 
-## Model Architecture 
+## Model 
 PREMA is an **XGBoost** classifier trained on statistical features extracted from 4-hour segments of continuous vital sign data via a sliding-window approach.
+- Each prediction segment spans **4 hours** of vital sign data
+- Within each segment, **5 overlapping 2-hour observation windows** (shifted by 30 min each) are extracted
+- Statistical and entropy-based features are computed from each observation window
+- The window slides forward in **30-minute steps**, generating a new prediction at each step
 
-### Pipeline 
+### Quick Start
+#### 1. Clone the repository
+
+```bash
+git clone https://github.com/<your-username>/PREMA.git
+cd PREMA
 ```
-1-min interval HR/SpO₂ data (4 hours)
-Demographic variables 
-        │
-        ▼
-┌─────────────────────────┐
-│   Sliding Window (2h)   │──► Advanced in 30-min increments
-│   Feature Extraction    │    across the 4-hour segment
-└─────────────────────────┘
-        │
-        ▼
-┌─────────────────────────┐
-│   129 Features/episode  │
-│ (Statistical + Temporal │
-│      + Demographic)     │
-└─────────────────────────┘
-        │
-        ▼
-┌─────────────────────────┐
-│   XGBoost Classifier    │──► Probability of metabolic acidosis
-└─────────────────────────┘        (6 hours ahead)
+
+#### 2. Install dependencies
+
+```bash
+pip install pandas numpy scipy joblib antropy tqdm
 ```
+
+> Python 3.8 or higher is recommended.
+
+#### 3. Prepare your data
+
+Your vital sign data should be a CSV file with the following columns:
+
+| Column | Type | Description |
+|---|---|---|
+| `patient_id` | int / str | Patient identifier |
+| `birthdate` | datetime | Date of birth (`YYYY-MM-DD`) |
+| `GA` | int | Gestational age at birth (days) |
+| `BW` | float | Birth weight (kg) |
+| `male` | int | Sex (1 = male, 0 = female) |
+| `Timestamp` | datetime | Measurement timestamp (`YYYY-MM-DD HH:MM`) |
+| `HR` | float | Heart rate (bpm) |
+| `sat` | float | Oxygen saturation / SpO₂ (%) |
+
+A sample dataset is provided: [`vs_sample.csv`](vs_sample.csv)
+
+#### 4. Run the notebook
+
+Open [`PREMA_code.ipynb`](PREMA_code.ipynb) and run all cells.
+
+```
+PREMA_code.ipynb
+├── 1. Import libraries
+├── 2. Load model         ← PREMA.pkl
+├── 3. Load data          ← vs_sample.csv  (or your own CSV)
+├── 4. Feature extraction
+├── 5. Run prediction
+└── 6. Save results       → prema_predictions.csv
+```
+
+Results are saved to `prema_predictions.csv` with the following columns:
+
+| Column | Description |
+|---|---|
+| `patient_id` | Patient identifier |
+| `group_id` | Window index (0-based) |
+| `window_start` | Start time of the prediction window |
+| `window_end` | End time of the prediction window |
+| `predicted_prob` | Predicted probability of metabolic acidosis |
+
 
 ## Repository Structure
 *Repository structure is subject to change. Please refer to the latest version.*
