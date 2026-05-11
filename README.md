@@ -147,3 +147,19 @@ PREMA/
 | joblib | ≥ 1.1 |
 | antropy | ≥ 0.1.4 |
 | tqdm | ≥ 4.0 |
+```
+
+---
+
+## Contact
+ 
+For questions or collaboration inquiries:
+ 
+- **Seng Chan You, MD, PhD** — Department of Biomedical Informatics, Yonsei University College of Medicine ([chandryou@yuhs.ac](mailto:chandryou@yuhs.ac))
+- **Jeong Eun Shin, MD, PhD** — Department of Pediatrics, Yonsei University College of Medicine ([golden-week@yuhs.ac](mailto:golden-week@yuhs.ac))
+---
+ 
+## License
+ 
+*License information will be updated.*
+
