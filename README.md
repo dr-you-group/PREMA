@@ -37,10 +37,10 @@ Metabolic acidosis is defined by **both** of the following criteria on blood gas
 
 PREMA is an XGBoost classifier trained on statistical features extracted from 4-hour segments of continuous vital sign data via a sliding-window approach.
 
-- Each prediction segment spans **4 hours** of vital sign data
-- Within each segment, **5 overlapping 2-hour observation windows** (shifted by 30 min each) are extracted
-- Statistical and entropy-based features are computed from each window
-- The segment slides forward in **30-minute steps**, generating a new prediction at each step
+- Each prediction window spans **4 hours** of vital sign data
+- Within each window, **5 overlapping 2-hour observation segments** (shifted by 30 min each) are extracted
+- Statistical and entropy-based features are computed from each segment
+- The window slides forward in **30-minute steps**, generating a new prediction at each step
 
 **Inputs**
 - Time-series: 1-minute interval HR and SpO₂ (> 4 hours continuous)
@@ -63,7 +63,7 @@ cd PREMA
 ### 2. Install dependencies
 
 ```bash
-pip install pandas numpy scipy joblib antropy tqdm xgboost
+pip install pandas numpy scipy joblib antropy tqdm
 ```
 
 > Python 3.8 or higher is recommended.
@@ -147,19 +147,25 @@ PREMA/
 | joblib | ≥ 1.1 |
 | antropy | ≥ 0.1.4 |
 | tqdm | ≥ 4.0 |
-```
+
+---
+
+## Citation
+
+If you use PREMA in your research, please cite:
+> [Paper title and citation will be updated.]
 
 ---
 
 ## Contact
- 
+
 For questions or collaboration inquiries:
- 
 - **Seng Chan You, MD, PhD** — Department of Biomedical Informatics, Yonsei University College of Medicine ([chandryou@yuhs.ac](mailto:chandryou@yuhs.ac))
 - **Jeong Eun Shin, MD, PhD** — Department of Pediatrics, Yonsei University College of Medicine ([golden-week@yuhs.ac](mailto:golden-week@yuhs.ac))
----
- 
-## License
- 
-*License information will be updated.*
 
+---
+
+## License
+
+This repository is provided for non-commercial academic research, education, and scholarly publication only.
+*License information will be updated.*
