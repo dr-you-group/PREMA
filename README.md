@@ -128,6 +128,7 @@ Results are saved to `prema_predictions.csv`:
 PREMA/
 ├── LICENSE
 ├── README.md
+├── requirements.txt     # Python package versions
 ├── PREMA.pkl            # Trained PREMA model
 ├── PREMA_code.ipynb     # Prediction notebook
 ├── vs_sample.csv        # Sample vital sign data (input)
