@@ -1,6 +1,6 @@
 # PREMA: Prediction of Metabolic Acidosis in Preterm Infants
 
-PREMA is a machine learning model that predicts **metabolic acidosis** in preterm infants **6 hours before onset**, using only routinely monitored heart rate (HR) and oxygen saturation (SpO₂) data sampled at 1-minute intervals.
+PREMA is a machine learning model that predicts **metabolic acidosis** in preterm infants **6 hours in advance**, using heart rate (HR) and oxygen saturation (SpO₂) recorded at 1-minute intervals together with four demographic variables (gestational age, birth weight, sex, and postmenstrual age).
 
 ---
 
@@ -47,7 +47,8 @@ PREMA is an XGBoost classifier trained on statistical features extracted from 4-
 - Static: gestational age (GA), birth weight (BW), sex, postmenstrual age (PMA)
 
 **Output**
-- Predicted probability of metabolic acidosis for each sliding window
+- Predicted probability of metabolic acidosis for each sliding window, for a blood gas measurement taken about 6 hours after the end of the window
+- Alert (1/0): an alert is raised when the predicted probability is ≥ 0.4989. This threshold was set on the validation set to give 80% sensitivity and was applied unchanged to the internal test and external validation sets.
 
 ---
 
@@ -119,6 +120,7 @@ Results are saved to `prema_predictions.csv`:
 | `window_start` | Start time of the prediction window |
 | `window_end` | End time of the prediction window |
 | `predicted_prob` | Predicted probability of metabolic acidosis |
+| `alert` | 1 if `predicted_prob` ≥ 0.4989, otherwise 0 |
 
 ---
 
@@ -170,4 +172,4 @@ For questions or collaboration inquiries:
 ## License
 
 This repository is provided for non-commercial academic research, education, and scholarly publication only.
-*License information will be updated.*
+This repository is licensed under the PREMA Research License; see LICENSE.
