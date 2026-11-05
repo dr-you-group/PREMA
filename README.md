@@ -56,17 +56,17 @@ PREMA is an XGBoost classifier trained on statistical features extracted from 4-
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/PREMA.git
+git clone https://github.com/dr-you-group/PREMA.git
 cd PREMA
 ```
 
 ### 2. Install dependencies
 
 ```bash
-pip install pandas numpy scipy joblib antropy tqdm
+pip install -r requirements.txt
 ```
 
-> Python 3.8 or higher is recommended.
+> Python 3.10 or higher is required.
 
 ### 3. Prepare your data
 
@@ -140,7 +140,8 @@ PREMA/
 
 | Package | Version |
 |---|---|
-| Python | ≥ 3.8 |
+| Python | ≥ 3.10 |
+| xgboost | 3.0.0 (version used to train and save `PREMA.pkl`) |
 | pandas | ≥ 1.3 |
 | numpy | ≥ 1.21 |
 | scipy | ≥ 1.7 |
