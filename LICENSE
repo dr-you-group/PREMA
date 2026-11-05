@@ -1,8 +1,8 @@
 PREMA Research License
-Version 1.0, [November 2026]
+Version 1.0, November 2026
 
-Copyright (c) 2026 [Yonsei University College of Medicine / Industry-Academic
-Cooperation Foundation, Yonsei University / National Health Insurance Service Ilsan Hospital]. All rights reserved.
+Copyright (c) 2026 Industry-Academic Cooperation Foundation, Yonsei University
+and National Health Insurance Service Ilsan Hospital. All rights reserved.
 
 This repository contains the PREMA (PREdiction of PREterm infants' Metabolic
 Acidosis) trained model, inference code, sample data, and documentation
