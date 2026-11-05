@@ -10,8 +10,8 @@ Preterm infants are vulnerable to life-threatening diseases, yet validated early
 
 PREMA addresses this gap by providing noninvasive, proactive prediction of metabolic acidosis using standard bedside monitoring data, enabling:
 
-- Early detection of clinical deterioration **6 hours before onset**
-- Reduction of iatrogenic harm by safe deferral of blood sampling
+- Early identification of clinical deterioration **6 hours in advance**
+- Support for decisions to defer routine blood sampling, potentially reducing iatrogenic harm
 
 ---
 
@@ -78,7 +78,7 @@ Prepare a CSV file with the following columns:
 | Column | Type | Description |
 |---|---|---|
 | `patient_id` | int / str | Patient identifier |
-| `Timestamp` | datetime | Measurement timestamp (`YYYY-MM-DD HH:MM`) |
+| `date_time` | datetime | Measurement timestamp (`YYYY-MM-DD HH:MM`) |
 | `HR` | float | Heart rate — allowed range: 0–250 bpm |
 | `sat` | float | Oxygen saturation / SpO₂ — allowed range: 0–100% |
 
@@ -95,7 +95,7 @@ Prepare a CSV file with the following columns:
 > **Missing values:** Not imputed. The proportion of missing values per window is included as a feature.  
 > **Minimum duration:** More than 4 hours of continuous data are required to generate at least one prediction.
 
-A sample dataset is provided: [`vs_sample.csv`](vs_sample.csv)
+A synthetic sample dataset is provided to illustrate the input format: [`vs_sample.csv`](vs_sample.csv). It is not intended to reproduce model performance
 
 ### 4. Run the notebook
 
@@ -171,5 +171,4 @@ For questions or collaboration inquiries:
 
 ## License
 
-This repository is provided for non-commercial academic research, education, and scholarly publication only.
-This repository is licensed under the PREMA Research License; see LICENSE.
+This repository is licensed under the [PREMA Research License](LICENSE) for non-commercial academic research, education, and scholarly publication only.
