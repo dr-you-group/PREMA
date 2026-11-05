@@ -1,1 +1,50 @@
+PREMA Research License
+Version 1.0, [November 2026]
 
+Copyright (c) 2026 [Yonsei University College of Medicine / Industry-Academic
+Cooperation Foundation, Yonsei University / National Health Insurance Service Ilsan Hospital]. All rights reserved.
+
+This repository contains the PREMA (PREdiction of PREterm infants' Metabolic
+Acidosis) trained model, inference code, sample data, and documentation
+(together, the "Software").
+
+1. Permitted use
+   You may use, copy, and modify the Software for non-commercial academic
+   research, education, and scholarly publication only, provided that this
+   licence and the copyright notice are retained in all copies and modified
+   versions.
+
+2. Restrictions
+   Without prior written permission from the copyright holder, you may not:
+   (a) use the Software, or any model or product derived from it, for any
+       commercial purpose, including sale, licensing, or provision as part of
+       a paid product or service;
+   (b) use the Software to guide the diagnosis, treatment, or management of
+       individual patients;
+   (c) redistribute the Software, or any modified version, under different
+       terms.
+
+3. Patents
+   A patent application covering the methods implemented in the Software is
+   pending. No licence under any patent or patent application is granted,
+   expressly or by implication, by this licence.
+
+4. Not a medical device
+   The Software has not been approved or cleared by any regulatory authority
+   and has not been evaluated prospectively. It is provided for research
+   purposes only and must not replace clinical judgement.
+
+5. Citation
+   Publications that use the Software should cite the original article
+   [citation to be added upon publication].
+
+6. Disclaimer of warranty and liability
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL
+   THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+   LIABILITY ARISING FROM THE USE OF THE SOFTWARE.
+
+7. Contact
+   For commercial licensing or clinical use, contact
+   Seng Chan You (chandryou@yuhs.ac) or Jeong Eun Shin (golden-week@yuhs.ac).
